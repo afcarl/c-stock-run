@@ -1,3 +1,20 @@
+cmake-build-debug-clang/
+cmake-build-release-clang/
+cmake-build-debug/
+cmake-build-release/
+
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+
+
 # Prerequisites
 *.d
 
@@ -50,3 +67,21 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+/.vs
+/release
+/bin
+/BIN_*
+/debug
+.sconsign*
+.vs/
+.idea/
+ee_log.txt
+iop_log.txt
+*.plist
+dummyout
+dummyout.txt
+x64/
+build/
+ps2_bios.bin
+psx_bios.bin
