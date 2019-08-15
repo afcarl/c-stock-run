@@ -1,10 +1,11 @@
 #pragma once
 
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
+
+#define _CRT_SECURE_NO_WARNINGS
 
 #define container_of(ptr, type, member)                                                                                \
   ({                                                                                                                   \
@@ -20,8 +21,8 @@ typedef uint32_t u32;
 typedef int32_t s32;
 typedef uint64_t u64;
 typedef int64_t s64;
-typedef __uint128_t u128;
-typedef __int128_t s128;
+//typedef __uint128_t u128;
+//typedef __int128_t s128;
 typedef float f32;
 typedef double f64;
 
@@ -31,6 +32,8 @@ typedef double f64;
 #define _vector(datatype, n) datatype __attribute__((vector_size(n * sizeof(datatype))))
 #else //msvc
 #define _vector(datatype, n) datatype 
+typedef long long ssize_t;  /* windows 64 bits */
+
 #endif
 
 typedef _vector(u8, 16)  v16ub;
@@ -55,10 +58,6 @@ typedef _vector(f64, 4) v4d;
 
 #undef _vector
 
-typedef union f32_u32_convert_t {
-	f32 f;
-	u32 i;
-} f32_u32_convert_t;
 
 #define warn(msg, ...)                                                                                                 \
   do {                                                                                                                 \

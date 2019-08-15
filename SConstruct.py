@@ -39,12 +39,9 @@ env.Append(CPPPATH=['$BUILD_ROOT/inc',
 
 
 def print_cmd_line(s, target, source, env):
-    if ARGUMENTS.get('verbose'):
-        print(s)
-    else:
-        print("building " + str(source[0]))
+    print(s)
 
-#env['PRINT_CMD_LINE_FUNC'] = print_cmd_line
+env['PRINT_CMD_LINE_FUNC'] = print_cmd_line
 
 debug_env = env.Clone()
 release_env = env.Clone()
@@ -94,11 +91,11 @@ def clang_format_func(env,target,source):
     with open(str(target[0]), 'w+') as f:
         f.write(' ')
 
-clang_format_builder = env.Builder(action=clang_format_func)
-env.Append(BUILDERS={'ClangFormat':clang_format_builder})
-ret = env.ClangFormat(target='dummyout.txt')
-env.AlwaysBuild(ret)
-env.Alias('clang_format',ret)
+#clang_format_builder = env.Builder(action=clang_format_func)
+#env.Append(BUILDERS={'ClangFormat':clang_format_builder})
+#ret = env.ClangFormat(target='dummyout.txt')
+#env.AlwaysBuild(ret)
+#env.Alias('clang_format',ret)
 
 
 

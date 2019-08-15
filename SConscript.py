@@ -1,22 +1,12 @@
 Import('env')
 
-sources = env.Glob('src/*.c')
+sources = env.Glob('src/*.cpp')
 
 ret = []
 
-lib_paths = ['${BUILD_ROOT}/third-party/sdl2/lib/x64/',
-             '${BUILD_ROOT}/third-party/sdl2_image/lib/x64/',
-             '${BUILD_ROOT}/third-party/sdl2_mixer/lib/x64/',
-             '${BUILD_ROOT}/third-party/sdl2_ttf/lib/x64/',
-             '${BUILD_ROOT}/third-party/glew/bin/Release/x64/',
-             #'${BUILD_ROOT}/third-party/glew/lib/Release/x64/',
-             ]
+lib_paths = []
 
-libs = [
-    '${BUILD_ROOT}/third-party/glew/lib/Release/x64/glew32.lib',
-    'C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/OpenGL32.lib',
-    'C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x64/GlU32.Lib',
-    ]
+libs = []
 installs = []
 
 for p in lib_paths:
